@@ -1,4 +1,3 @@
-/* Asegúrate de que html y body ocupen el 100% */
 html, body {
     height: 100%;
     margin: 0;
@@ -7,15 +6,17 @@ html, body {
     color: #fee8d0;
 }
 
+/* ===== NAVBAR ===== */
 .navbar {
-    position: absolute; 
+    position: fixed;
     width: 100%;
     z-index: 1000;
     top: 0;
-    margin-top: -25px; /* Prueba con -10px, -15px o lo que necesites para subirlo */
+    padding: 10px 0;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
 }
 
-/* Forzar que el contenedor no tenga margen superior */
 .navbar .container {
     padding-top: 0 !important;
     margin-top: 0 !important;
@@ -27,30 +28,39 @@ html, body {
     margin-top: 0 !important;
 }
 
-/* El logo grande inicial */
 .navbar-brand img {
-    width: 120px; /* Tamaño grande inicial */
+    width: 80px;
     transition: all 0.4s ease;
 }
 
-/* Ajuste de Grosores (Títulos y Subtítulos) */
+.navbar .nav-link {
+    font-size: 13px;
+    color: #fee8d0 !important;
+}
+
+.navbar .btn-outline-light {
+    border-radius: 20px;
+    font-size: 13px;
+    padding: 6px 14px;
+}
+
+/* ===== TIPOGRAFÍA ===== */
 h1, h2, h3, h4, h5 {
-    font-weight: 800; /* Extra negrita para todos los títulos */
+    font-weight: 800;
     letter-spacing: -1px;
 }
 
-/* Si quieres que una palabra específica sea más gruesa, 
-   úsala dentro de un span con clase .bold-text en tu HTML */
 .bold-text {
     font-weight: 900;
     color: #fee8d0;
 }
 
+/* ===== HERO ===== */
 .hero {
     height: 100vh;
-    background-image: url('her.jpg'); 
-    background-size: cover;        /* Esto hace que cubra todo, pero a veces recorta partes */
-    background-position: center;   /* Esto centra la imagen para que se vea la parte importante */
+    background-image: url('her.jpg');
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
     display: flex;
     align-items: center;
@@ -58,7 +68,6 @@ h1, h2, h3, h4, h5 {
     position: relative;
 }
 
-/* Para que el texto no quede oculto detrás de la imagen */
 .hero .container {
     position: relative;
     z-index: 2;
@@ -70,32 +79,45 @@ h1, h2, h3, h4, h5 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3); /* Oscurece un poco la imagen para el texto */
+    background: rgba(0, 0, 0, 0.3);
     z-index: 1;
 }
-/* Estilo base para todos los arcos */
+
+/* ===== ARCH IMAGES ===== */
 .arch-img {
     height: 300px;
     background-size: cover;
     background-position: center;
     border-radius: 150px 150px 0 0;
-    transition: transform 0.3s ease;
-    margin-bottom: 20px; /* Para separar si hay texto debajo */
+    margin-bottom: 20px;
+    opacity: 0;
+    transition: all 0.5s ease;
+    transform: translateY(50px);
+    animation: float 3s ease-in-out infinite;
 }
 
-/* Imagen específica para cada uno */
-.img-1 { background-image: url('i1.jpeg'); }
-.img-2 { background-image: url('i2.jpeg'); }
-.img-3 { background-image: url('i3.jpeg'); }
-.img-4 { background-image: url('i4.jpeg'); }
-
-/* Efecto hover */
 .arch-img:hover {
     transform: translateY(-10px);
     cursor: pointer;
 }
 
-/* Tarjetas de eventos */
+.arch-img.animate-fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.img-1 { background-image: url('i1.jpeg'); animation-delay: 0s; }
+.img-2 { background-image: url('i2.jpeg'); animation-delay: 0.5s; }
+.img-3 { background-image: url('i3.jpeg'); animation-delay: 1s; }
+.img-4 { background-image: url('i4.jpeg'); animation-delay: 1.5s; }
+
+@keyframes float {
+    0%   { transform: translateY(0px); }
+    50%  { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* ===== EVENTOS ===== */
 .event-card {
     background: #757b53;
     padding: 30px;
@@ -104,13 +126,14 @@ h1, h2, h3, h4, h5 {
     color: #fee8d0;
 }
 
+/* ===== MARQUEE ===== */
 .marquee-container {
     width: 100%;
-    overflow: hidden; /* Oculta lo que se sale del borde */
+    overflow: hidden;
     background: transparent;
     padding: 20px 0;
     border-top: 3px solid #ff7f50;
-    border-bottom: 3px solid  #ff7f50;
+    border-bottom: 3px solid #ff7f50;
     margin-bottom: 40px;
 }
 
@@ -118,9 +141,8 @@ h1, h2, h3, h4, h5 {
     display: flex;
     white-space: nowrap;
     animation: marquee 15s linear infinite;
-    gap: 40px; /* Esto da aire entre los bloques de texto */
+    gap: 40px;
 }
-
 
 .marquee-text span {
     font-size: 2rem;
@@ -129,40 +151,13 @@ h1, h2, h3, h4, h5 {
     padding: 0 20px;
     text-transform: uppercase;
 }
-.arch-img {
-    opacity: 0;
-    transition: all 0.5s ease;
-    transform: translateY(50px);
-    box-shadow: 0 50px 20px rgba(22, 75, 28, 0.2);
-    animation: float 3s ease-in-out infinite;
-}
 
-.img-1 { animation-delay: 0s; }
-.img-2 { animation-delay: 0.5s; }
-.img-3 { animation-delay: 1s; }
-.img-4 { animation-delay: 1.5s; }
-
-.arch-img.animate-fade-in {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-15px); } /* Sube 15px */
-    100% { transform: translateY(0px); }
-}
-
-/* La magia de la animación */
 @keyframes marquee {
-    0% { transform: translateX(0); }
+    0%   { transform: translateX(0); }
     100% { transform: translateX(-50%); }
 }
 
-
-
-
-/* Badge estilizado */
+/* ===== CART BADGE ===== */
 #cart-badge {
     background-color: #ff8a65 !important;
     color: #fee8d0 !important;
@@ -171,26 +166,20 @@ h1, h2, h3, h4, h5 {
     min-width: 20px;
     height: 20px;
     padding: 0 5px !important;
-    display: none; /* Empezamos oculto */
+    display: none;
     align-items: center;
     justify-content: center;
     border-radius: 50px !important;
     position: absolute;
     top: -5px;
     right: -10px;
-    z-index: 9999; /* Asegura que esté encima de todo */
-}s
+    z-index: 9999;
+}
 
-
-
-
-
-
-
-/* Botón color Crema de tu marca */
+/* ===== BOTONES ===== */
 .btn-crema {
-    background-color: #fee8d0 !important; /* Tu color crema */
-    color: #6b7036 !important; /* El color de fondo verde/tierra para que resalte */
+    background-color: #fee8d0 !important;
+    color: #6b7036 !important;
     font-weight: bold;
     border-radius: 20px !important;
     padding: 12px;
@@ -198,21 +187,10 @@ h1, h2, h3, h4, h5 {
 }
 
 .btn-crema:hover {
-    background-color:#e59739 !important;
+    background-color: #e59739 !important;
     transform: scale(1.02);
 }
 
-
-
-
-
-/* Espaciado para la nueva página */
-.menu-section {
-    padding-top: 100px;
-    background-color: #be603e; /* Mismo fondo que tu index */
-}
-
-/* Estilo para los botones de la carta */
 .btn-outline-light {
     border-radius: 20px;
     transition: 0.3s;
@@ -221,6 +199,12 @@ h1, h2, h3, h4, h5 {
 .btn-outline-light:hover {
     background-color: #fee8d0;
     color: #be603e;
+}
+
+/* ===== MENÚ / CARTA ===== */
+.menu-section {
+    padding-top: 90px;
+    background-color: #be603e;
 }
 
 .img-carta-1 { background-image: url('c1.jpeg'); }
@@ -233,12 +217,7 @@ h1, h2, h3, h4, h5 {
 .img-carta-8 { background-image: url('c8.jpeg'); }
 .img-carta-9 { background-image: url('c9.jpeg'); }
 
-
-
-
-
-
-
+/* ===== CARRITO ===== */
 .btn-sm {
     width: 30px;
     height: 30px;
@@ -246,20 +225,20 @@ h1, h2, h3, h4, h5 {
     border-radius: 50%;
 }
 
-
 .cart-item {
     border: 3px solid #fdf5e6;
     border-radius: 15px !important;
 }
 
+.cart-section {
+    padding-top: 90px;
+    min-height: 60vh;
+}
 
-
-
-
-/* Estilo para las tarjetas de testimonio */
+/* ===== CARDS ===== */
 .card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background-color: #fdf5e6; /* Tu tono crema claro */
+    background-color: #fdf5e6;
 }
 
 .card:hover {
@@ -268,23 +247,16 @@ h1, h2, h3, h4, h5 {
 }
 
 .text-warning {
-    color: #ffc107 !important; /* El color dorado de las estrellas */
+    color: #ffc107 !important;
     font-size: 1.2rem;
 }
 
-
-
-
-
-
-
-/* Footer con onda */
+/* ===== FOOTER ===== */
 .footer-section {
-    background-color:#e59739; /* El color naranja */
-    color:#fee8d0;
+    background-color: #e59739;
+    color: #fee8d0;
     padding: 80px 0 40px;
-    margin-top: 50px;
-    /* Creamos la curva superior */
+    margin-top: 0;
     border-top-left-radius: 50% 100px;
     border-top-right-radius: 50% 100px;
 }
@@ -299,4 +271,84 @@ h1, h2, h3, h4, h5 {
     margin-bottom: 20px;
 }
 
+/* ===== RESPONSIVE MÓVIL ===== */
+@media (max-width: 768px) {
 
+    .navbar {
+        background-color: rgba(190, 96, 62, 0.97) !important;
+        padding: 8px 0;
+    }
+
+    .navbar-brand img {
+        width: 60px;
+    }
+
+    .navbar .nav-link {
+        font-size: 10px;
+        padding: 4px 4px !important;
+    }
+
+    .navbar .btn-outline-light {
+        font-size: 9px;
+        padding: 3px 6px !important;
+        white-space: nowrap;
+    }
+
+    .navbar .gap-2 {
+        gap: 4px !important;
+    }
+
+    /* Hero */
+    .hero {
+        padding-top: 0;
+    }
+
+    .hero img {
+        max-width: 200px;
+    }
+
+    /* Invitation: 2 columnas */
+    .invitation .col-md-3 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    /* Arcos más pequeños */
+    .arch-img {
+        height: 160px;
+        border-radius: 80px 80px 0 0;
+    }
+
+    /* Eventos */
+    .events .col-md-4 {
+        margin-bottom: 16px;
+    }
+
+    /* Marquee */
+    .marquee-text span {
+        font-size: 1.2rem;
+    }
+
+    /* Menú carta: 2 columnas en móvil */
+    .menu-section .col-md-4 {
+        flex: 0 0 50%;
+        max-width: 50%;
+        margin-bottom: 24px !important;
+    }
+
+    /* Footer */
+    .footer-section {
+        border-top-left-radius: 30% 60px;
+        border-top-right-radius: 30% 60px;
+        margin-top: 0;
+    }
+
+    .footer-section .col-md-3 {
+        text-align: center;
+        margin-bottom: 24px;
+    }
+
+    .footer-section .text-end {
+        text-align: center !important;
+    }
+}
