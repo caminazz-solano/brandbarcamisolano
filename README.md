@@ -129,5 +129,6 @@ Proyecto desarrollado de manera individual para la asignatura de Programación W
 
 Github: 
 https://caminazz-solano.github.io/brandbarcamisolano/
+
 Sitio desplegado:
 https://brandbarcamisolano.netlify.app/
