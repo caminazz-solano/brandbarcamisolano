@@ -1,0 +1,302 @@
+/* Asegúrate de que html y body ocupen el 100% */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #be603e;
+    color: #fee8d0;
+}
+
+.navbar {
+    position: absolute; 
+    width: 100%;
+    z-index: 1000;
+    top: 0;
+    margin-top: -25px; /* Prueba con -10px, -15px o lo que necesites para subirlo */
+}
+
+/* Forzar que el contenedor no tenga margen superior */
+.navbar .container {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+.navbar-brand {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 0 !important;
+}
+
+/* El logo grande inicial */
+.navbar-brand img {
+    width: 120px; /* Tamaño grande inicial */
+    transition: all 0.4s ease;
+}
+
+/* Ajuste de Grosores (Títulos y Subtítulos) */
+h1, h2, h3, h4, h5 {
+    font-weight: 800; /* Extra negrita para todos los títulos */
+    letter-spacing: -1px;
+}
+
+/* Si quieres que una palabra específica sea más gruesa, 
+   úsala dentro de un span con clase .bold-text en tu HTML */
+.bold-text {
+    font-weight: 900;
+    color: #fee8d0;
+}
+
+.hero {
+    height: 100vh;
+    background-image: url('her.jpg'); 
+    background-size: cover;        /* Esto hace que cubra todo, pero a veces recorta partes */
+    background-position: center;   /* Esto centra la imagen para que se vea la parte importante */
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Para que el texto no quede oculto detrás de la imagen */
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Oscurece un poco la imagen para el texto */
+    z-index: 1;
+}
+/* Estilo base para todos los arcos */
+.arch-img {
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 150px 150px 0 0;
+    transition: transform 0.3s ease;
+    margin-bottom: 20px; /* Para separar si hay texto debajo */
+}
+
+/* Imagen específica para cada uno */
+.img-1 { background-image: url('i1.jpeg'); }
+.img-2 { background-image: url('i2.jpeg'); }
+.img-3 { background-image: url('i3.jpeg'); }
+.img-4 { background-image: url('i4.jpeg'); }
+
+/* Efecto hover */
+.arch-img:hover {
+    transform: translateY(-10px);
+    cursor: pointer;
+}
+
+/* Tarjetas de eventos */
+.event-card {
+    background: #757b53;
+    padding: 30px;
+    border-radius: 40px;
+    height: 100%;
+    color: #fee8d0;
+}
+
+.marquee-container {
+    width: 100%;
+    overflow: hidden; /* Oculta lo que se sale del borde */
+    background: transparent;
+    padding: 20px 0;
+    border-top: 3px solid #ff7f50;
+    border-bottom: 3px solid  #ff7f50;
+    margin-bottom: 40px;
+}
+
+.marquee-text {
+    display: flex;
+    white-space: nowrap;
+    animation: marquee 15s linear infinite;
+    gap: 40px; /* Esto da aire entre los bloques de texto */
+}
+
+
+.marquee-text span {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fee8d0;
+    padding: 0 20px;
+    text-transform: uppercase;
+}
+.arch-img {
+    opacity: 0;
+    transition: all 0.5s ease;
+    transform: translateY(50px);
+    box-shadow: 0 50px 20px rgba(22, 75, 28, 0.2);
+    animation: float 3s ease-in-out infinite;
+}
+
+.img-1 { animation-delay: 0s; }
+.img-2 { animation-delay: 0.5s; }
+.img-3 { animation-delay: 1s; }
+.img-4 { animation-delay: 1.5s; }
+
+.arch-img.animate-fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); } /* Sube 15px */
+    100% { transform: translateY(0px); }
+}
+
+/* La magia de la animación */
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+
+
+
+/* Badge estilizado */
+#cart-badge {
+    background-color: #ff8a65 !important;
+    color: #fee8d0 !important;
+    font-size: 0.65rem !important;
+    font-weight: bold;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 5px !important;
+    display: none; /* Empezamos oculto */
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px !important;
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    z-index: 9999; /* Asegura que esté encima de todo */
+}s
+
+
+
+
+
+
+
+/* Botón color Crema de tu marca */
+.btn-crema {
+    background-color: #fee8d0 !important; /* Tu color crema */
+    color: #6b7036 !important; /* El color de fondo verde/tierra para que resalte */
+    font-weight: bold;
+    border-radius: 20px !important;
+    padding: 12px;
+    transition: 0.3s;
+}
+
+.btn-crema:hover {
+    background-color:#e59739 !important;
+    transform: scale(1.02);
+}
+
+
+
+
+
+/* Espaciado para la nueva página */
+.menu-section {
+    padding-top: 100px;
+    background-color: #be603e; /* Mismo fondo que tu index */
+}
+
+/* Estilo para los botones de la carta */
+.btn-outline-light {
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.btn-outline-light:hover {
+    background-color: #fee8d0;
+    color: #be603e;
+}
+
+.img-carta-1 { background-image: url('c1.jpeg'); }
+.img-carta-2 { background-image: url('c2.jpeg'); }
+.img-carta-3 { background-image: url('c3.jpeg'); }
+.img-carta-4 { background-image: url('c4.jpeg'); }
+.img-carta-5 { background-image: url('c5.jpeg'); }
+.img-carta-6 { background-image: url('c6.jpeg'); }
+.img-carta-7 { background-image: url('c7.jpeg'); }
+.img-carta-8 { background-image: url('c8.jpeg'); }
+.img-carta-9 { background-image: url('c9.jpeg'); }
+
+
+
+
+
+
+
+.btn-sm {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border-radius: 50%;
+}
+
+
+.cart-item {
+    border: 3px solid #fdf5e6;
+    border-radius: 15px !important;
+}
+
+
+
+
+
+/* Estilo para las tarjetas de testimonio */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fdf5e6; /* Tu tono crema claro */
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2) !important;
+}
+
+.text-warning {
+    color: #ffc107 !important; /* El color dorado de las estrellas */
+    font-size: 1.2rem;
+}
+
+
+
+
+
+
+
+/* Footer con onda */
+.footer-section {
+    background-color:#e59739; /* El color naranja */
+    color:#fee8d0;
+    padding: 80px 0 40px;
+    margin-top: 50px;
+    /* Creamos la curva superior */
+    border-top-left-radius: 50% 100px;
+    border-top-right-radius: 50% 100px;
+}
+
+.footer-section a {
+    color: #fee8d0;
+    text-decoration: none;
+}
+
+.footer-section h5 {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+
