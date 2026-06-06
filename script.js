@@ -128,3 +128,4 @@ function confirmarPedido() {
     // Aquí es donde sucede la redirección al archivo que creaste
     window.location.href = 'confirmar.html'; 
 }
+
